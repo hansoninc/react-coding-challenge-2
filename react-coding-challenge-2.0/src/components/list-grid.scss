@@ -1,0 +1,24 @@
+.list-grid {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	&__item {
+		margin: 0 0.5em 2em;
+		padding: 0;
+
+		@media(min-width: 40em) {
+			width: calc(50% - 1em);
+		}
+
+		@media(min-width: 60em) {
+			width: calc(33.33% - 1em);
+		}
+
+		@media(min-width: 80em) {
+			width: calc(25% - 1em);
+		}
+	}
+}
