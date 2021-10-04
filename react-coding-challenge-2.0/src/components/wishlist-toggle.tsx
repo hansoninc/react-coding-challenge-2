@@ -1,21 +1,22 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import {Button} from "react-bootstrap";
+import {AppContext, GlobalContext, WishlistItem} from "../AppContextProvider";
 
 type WishlistToggleProps = {
-	id: number
+	id: number,
+	item: any
 }
 
-export function WishlistToggle({id}: WishlistToggleProps) {
-	const [inWishlist, setInWishlist] = useState(false);
+export function WishlistToggle({id, item}: WishlistToggleProps) {
+	const appContext = useContext<GlobalContext>(AppContext);
 
 	const toggle = function() {
-		setInWishlist(!inWishlist);
-		console.log(id);
+		appContext.toggleWishlistItem(item);
 	}
 
 	return (
 		<Button onClick={toggle}>
-			{!inWishlist ? 'Add to Wishlist' : 'Remove from Wishlist'}
+			{!appContext.inWishlist(id) ? 'Add to Wishlist' : 'Remove from Wishlist'}
 		</Button>
 	)
 }

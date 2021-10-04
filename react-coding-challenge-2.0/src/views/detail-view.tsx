@@ -33,7 +33,7 @@ export function DetailView() {
 							<div className="d-flex align-items-center justify-content-between mb-4">
 								<h2>{data.name}</h2>
 								<div className="mx-4 ml-auto">
-									<WishlistToggle id={data.id} />
+									<WishlistToggle id={data.id} item={data} />
 								</div>
 							</div>
 						</Row>

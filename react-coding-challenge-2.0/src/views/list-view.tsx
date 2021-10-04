@@ -51,7 +51,7 @@ export function ListView() {
 							heading={animal.name}
 							subhead={`${animal.type}, ${animal.breeds.primary}, ${animal.age}, ${animal.gender}, ${animal.size}`}
 							description={`ID #${animal.id} - ${animal.status}`}
-							actions={<WishlistToggle id={animal.id} />}
+							actions={<WishlistToggle id={animal.id} item={animal} />}
 						/>
 					)}
 				</ListGrid>
