@@ -25,9 +25,9 @@ type WishlistContextProviderProps = {
 export function WishlistContextProvider({children}: WishlistContextProviderProps) {
 	const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
 
-	const inWishlist = function(id: number) {
+	const inWishlist = function(id: number): Boolean {
 		const found = wishlistItems.find((el: WishlistItem) => el.id === id);
-		return found;
+		return found != null;
 	}
 
 	const toggleWishlistItem = function(item: WishlistItem): void {
