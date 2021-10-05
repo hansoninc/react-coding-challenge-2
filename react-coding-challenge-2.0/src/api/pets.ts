@@ -1,6 +1,11 @@
 import {Client as PetfinderClient} from '@petfinder/petfinder-js';
 import {AnimalsEntity, AnimalType, GetAnimalsSearchOpts} from "./models";
 
+/*
+ * The Petfinder API_KEY and API_SECRET are not checked into Git. You can find them at:
+ * https://www.petfinder.com/user/developer-settings/
+ * These are then saved in an `.env.local` file
+ */
 const API_KEY: string = process.env.REACT_APP_API_KEY || '';
 const API_SECRET: string = process.env.REACT_APP_API_SECRET || '';
 const DEFAULT_LOC = '43604';
