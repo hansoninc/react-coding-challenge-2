@@ -2,13 +2,10 @@ import React, {useEffect, useState, Fragment} from 'react';
 import {PetsAPI} from "../api/pets";
 import {AnimalType} from "../api/models";
 import {Nav, Navbar} from "react-bootstrap";
-import {useParams} from "react-router-dom";
-import {ListViewParams} from "../views/list-view";
 import {NavLink} from "react-router-dom";
 
 export function TypeList() {
 	const [types, setTypes] = useState<AnimalType[]>([]);
-	const {animalType}: ListViewParams = useParams();
 
 	useEffect(() => {
 		void loadTypes();
@@ -33,7 +30,7 @@ export function TypeList() {
 				<Navbar>
 					<Nav>
 						<Nav.Item>
-							<NavLink activeClassName="active" to="/list">All</NavLink>
+							<NavLink to="/list">All</NavLink>
 						</Nav.Item>
 						{types.map(type =>
 							<Nav.Item

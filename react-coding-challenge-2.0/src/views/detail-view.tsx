@@ -14,20 +14,18 @@ export function DetailView() {
 	const [data, setData] = useState<AnimalsEntity>();
 
 	useEffect(() => {
-		void loadData();
-	}, []);
+		async function loadData() {
+			const result = await PetsAPI.getAnimalById(parseInt(id));
+			setData(result);
+		}
 
-	const loadData = async () => {
-		const result = await PetsAPI.getAnimalById(parseInt(id));
-		console.log(result);
-		setData(result);
-	}
+		void loadData();
+	}, [id]);
 
 	return (
 		<div>
 			{data ?
 				<>
-
 					<Container>
 						<Row>
 							<div className="d-flex align-items-center justify-content-between mb-4">
@@ -67,8 +65,6 @@ export function DetailView() {
 							</Col>
 						</Row>
 					</Container>
-
-
 				</>
 			: null}
 		</div>

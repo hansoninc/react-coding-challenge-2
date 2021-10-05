@@ -1,12 +1,12 @@
 import React from 'react';
-import {AppContext} from "../AppContextProvider";
+import {WishlistContext} from "../WishlistContextProvider";
 import {NavLink} from "react-router-dom";
 
 export function Wishlist() {
 	return (
 		<div className="wishlist">
 			Wishlist
-			<AppContext.Consumer>
+			<WishlistContext.Consumer>
 				{(context) => (
 					<ul>
 						{context?.wishlistItems?.map(el => (
@@ -21,7 +21,7 @@ export function Wishlist() {
 						))}
 					</ul>
 				)}
-			</AppContext.Consumer>
+			</WishlistContext.Consumer>
 		</div>
 	)
 }

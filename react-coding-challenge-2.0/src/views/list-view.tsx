@@ -17,15 +17,15 @@ export function ListView() {
 	const {animalType}: ListViewParams = useParams();
 
 	useEffect(() => {
-		void loadPets(animalType);
-	}, [animalType]);
-
-	const loadPets = async (type?: string) => {
-		const animals = await api.getAnimals(type);
-		if (animals) {
-			setAnimals(animals);
+		async function loadPets(type?: string) {
+			const animals = await api.getAnimals(type);
+			if (animals) {
+				setAnimals(animals);
+			}
 		}
-	}
+
+		void loadPets(animalType);
+	}, [animalType, api]);
 
 	const getPhoto = (animal: AnimalsEntity) => {
 		if (animal.photos?.length && animal.photos[0].medium) {

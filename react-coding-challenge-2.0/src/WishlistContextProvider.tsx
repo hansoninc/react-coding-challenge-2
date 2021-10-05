@@ -6,23 +6,23 @@ export type WishlistItem = {
 	fullDetails?: any;
 }
 
-export type GlobalContext = {
+export type WishlistContextProps = {
 	wishlistItems?: WishlistItem[],
 	inWishlist: Function,
-	toggleWishlistItem: Function
+	toggleInWishlist: Function
 };
 
-export const AppContext = createContext<GlobalContext>({
+export const WishlistContext = createContext<WishlistContextProps>({
 	wishlistItems: [],
-	inWishlist: new Function(),
-	toggleWishlistItem: new Function()
+	inWishlist: () => {},
+	toggleInWishlist: () => {}
 });
 
-type AppContextProviderProps = {
+type WishlistContextProviderProps = {
 	children: ReactNode
 };
 
-export function AppContextProvider({children}: AppContextProviderProps) {
+export function WishlistContextProvider({children}: WishlistContextProviderProps) {
 	const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
 
 	const inWishlist = function(id: number) {
@@ -36,28 +36,24 @@ export function AppContextProvider({children}: AppContextProviderProps) {
 		const index = tmp.findIndex((el: WishlistItem) => el.id === id);
 
 		if (index > -1) {
-			// console.log(`Removing ${id}`);
 			tmp.splice(index, 1);
 			setWishlistItems(tmp);
 		} else {
-			// console.log(`Adding ${id}`);
 			tmp.push({
 				id: id,
 				fullDetails: item
 			});
 			setWishlistItems(tmp);
 		}
-
-		// console.log(tmp.map(el => el.id).join(','));
 	}
 
 	return (
-		<AppContext.Provider value={{
+		<WishlistContext.Provider value={{
 			wishlistItems: wishlistItems,
 			inWishlist: inWishlist,
-			toggleWishlistItem: toggleWishlistItem
+			toggleInWishlist: toggleWishlistItem
 		}}>
 			{children}
-		</AppContext.Provider>
+		</WishlistContext.Provider>
 	);
 }

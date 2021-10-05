@@ -5,21 +5,21 @@ import {ListView} from "./views/list-view";
 import {NotFound} from "./views/notfound";
 import {DetailView} from "./views/detail-view";
 import {SiteHeader} from "./components/site-header";
-import {AppContextProvider} from "./AppContextProvider";
+import {WishlistContextProvider} from "./WishlistContextProvider";
 
 function App() {
 	return (
 		<BrowserRouter>
-			<AppContextProvider>
+			<WishlistContextProvider>
 				<SiteHeader />
 				<Switch>
 					<Route path="/" component={ListView} exact />
-					<Route path="/list/:animalType" component={ListView}/>
-					<Route path="/list" component={ListView}/>
+					<Route path="/list/:animalType" component={ListView} />
+					<Route path="/list" component={ListView} exact />
 					<Route path="/detail/:id" component={DetailView}/>
 					<Route component={NotFound}/>
 				</Switch>
-			</AppContextProvider>
+			</WishlistContextProvider>
 		</BrowserRouter>
 	);
 }
