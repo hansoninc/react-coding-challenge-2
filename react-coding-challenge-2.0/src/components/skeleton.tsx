@@ -8,7 +8,7 @@ type SkeletonProps = {
 }
 
 export function Skeleton({height = 200, width, className}: SkeletonProps) {
-	const styles: any = {};
+	const styles: { width?: number|string, height? : number|string } = {};
 	if (width) {
 		styles.width = typeof (width) === 'number' ? `${width}px` : width;
 	}
