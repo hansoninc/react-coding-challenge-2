@@ -15,8 +15,8 @@ export function WishlistToggle({id, item}: WishlistToggleProps) {
 	}
 
 	return (
-		<Button onClick={toggle}>
-			{!appContext.inWishlist(id) ? 'Add to Wishlist' : 'Remove from Wishlist'}
+		<Button onClick={toggle} variant={appContext.inWishlist(id) ? 'success' : 'info'}>
+			{!appContext.inWishlist(id) ? '☆ Add to Wishlist' : '★ Remove from Wishlist'}
 		</Button>
 	)
 }

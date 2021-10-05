@@ -37,6 +37,13 @@ export function DetailView() {
 						</Row>
 						<Row>
 							<Col>
+								{data.photos?.length ?
+								data.photos.map(photo =>
+									<img src={photo.large} alt="" />
+								)
+								: <img src="https://via.placeholder.com/600" className="img-fluid" alt="" /> }
+							</Col>
+							<Col>
 								<p>
 									{data.type}, {data.breeds?.primary}, {data.age}, {data.gender}, {data.size}
 								</p>
@@ -55,13 +62,6 @@ export function DetailView() {
 								<p>
 									<Button href={data.url} target="_blank">View on Petfinder</Button>
 								</p>
-							</Col>
-							<Col>
-								{data.photos?.length ?
-									data.photos.map(photo =>
-										<img src={photo.large} alt="" />
-									)
-								: null}
 							</Col>
 						</Row>
 					</Container>

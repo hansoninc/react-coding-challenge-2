@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {Wishlist} from "./wishlist";
+import './site-header.scss';
 
 export function SiteHeader() {
 	return (

@@ -8,6 +8,7 @@
 	&__item {
 		margin: 0 0.5em 2em;
 		padding: 0;
+		flex-grow: 0;
 
 		@media(min-width: 40em) {
 			width: calc(50% - 1em);
