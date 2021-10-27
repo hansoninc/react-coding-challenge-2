@@ -7,6 +7,9 @@ import {ListGrid} from "../components/list-grid";
 import {Card} from "../components/card";
 import {WishlistToggle} from "../components/wishlist-toggle";
 import {Skeleton} from "../components/skeleton";
+import {Button} from "react-bootstrap";
+import {useHistory} from "react-router-dom";
+import {getPhoto} from "../helpers/animal-helpers";
 
 export type ListViewParams = {
 	animalType?: string
@@ -17,6 +20,7 @@ export function ListView() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [animals, setAnimals] = useState<AnimalsEntity[]>([]);
 	const {animalType}: ListViewParams = useParams();
+	const history = useHistory();
 
 	useEffect(() => {
 		async function loadPets(type?: string) {
@@ -32,12 +36,8 @@ export function ListView() {
 		void loadPets(animalType);
 	}, [animalType, api]);
 
-	const getPhoto = (animal: AnimalsEntity) => {
-		if (animal.photos?.length && animal.photos[0].medium) {
-			return animal.photos[0].medium;
-		} else {
-			return 'https://via.placeholder.com/300';
-		}
+	const gotoDetails = (id: number) => {
+		history.push(`/detail/${id}`);
 	}
 
 	return (
@@ -60,7 +60,17 @@ export function ListView() {
 								heading={animal.name}
 								subhead={`${animal.type}, ${animal.breeds.primary}, ${animal.age}, ${animal.gender}, ${animal.size}`}
 								description={`ID #${animal.id} - ${animal.status}`}
-								actions={<WishlistToggle id={animal.id} item={animal} />}
+								actions={
+									<ul className="list-unstyled d-flex">
+										<li className="me-2">
+											<Button variant="primary" onClick={() => { gotoDetails(animal.id) }}>View Details</Button>
+										</li>
+										<li>
+											<WishlistToggle id={animal.id} item={animal} />
+										</li>
+									</ul>
+
+								}
 							/>
 						)
 					)}

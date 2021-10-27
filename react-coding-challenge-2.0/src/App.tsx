@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {ListView} from "./views/list-view";
-import {NotFound} from "./views/notfound";
+import {NotFoundView} from "./views/not-found-view";
 import {DetailView} from "./views/detail-view";
 import {SiteHeader} from "./components/site-header";
 import {WishlistContextProvider} from "./WishlistContextProvider";
@@ -17,7 +17,7 @@ function App() {
 					<Route path="/list/:animalType" component={ListView} />
 					<Route path="/list" component={ListView} exact />
 					<Route path="/detail/:id" component={DetailView}/>
-					<Route component={NotFound}/>
+					<Route component={NotFoundView}/>
 				</Switch>
 			</WishlistContextProvider>
 		</BrowserRouter>

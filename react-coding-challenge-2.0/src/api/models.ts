@@ -63,6 +63,7 @@ export interface Colors {
 	tertiary?: null;
 }
 export interface PhotosEntity {
+	[key: string]: string;
 	small: string;
 	medium: string;
 	large: string;

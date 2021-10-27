@@ -1,0 +1,31 @@
+.wishlist {
+	position: relative;
+	display: block;
+
+	&__title, &__count {
+		display: inline-block;
+		margin-right: 0.5em;
+	}
+
+	&__title {
+		font-weight: bold;
+	}
+
+	&__list {
+		top: 3em;
+		position: absolute;
+		right: 0;
+		width: 20em;
+		background: #fff;
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+		padding: 1em;
+	}
+
+	&__item {
+		margin-bottom: 1em;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}

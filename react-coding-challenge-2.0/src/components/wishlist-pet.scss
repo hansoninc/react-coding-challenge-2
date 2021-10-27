@@ -1,0 +1,33 @@
+.wishlist-pet {
+	&__img, &__name, &__desription {
+		display: block;
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+	}
+
+	&__img-wrap {
+		width: 60px;
+		height: 60px;
+		margin-right: 0.75em;
+	}
+
+	&__img {
+		width: 60px;
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 25%;
+	}
+
+	&__name {
+		font-size: 1.1em;
+		font-weight: bold;
+		margin-bottom: 0.25em;
+	}
+
+	&__actions {
+		margin-left: auto;
+	}
+}

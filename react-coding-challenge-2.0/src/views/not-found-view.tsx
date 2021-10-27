@@ -1,9 +1,9 @@
 import React from "react";
 
-export function NotFound() {
+export function NotFoundView() {
 	return (
 		<div>
-			<h2>NotFound</h2>
+			<h2>Not Found</h2>
 		</div>
 	)
 }
