@@ -1,0 +1,10 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+.nav-item {
+	margin-left: 1em;
+	margin-right: 1em;
+
+	& .active {
+		font-weight: bold;
+	}
+}
